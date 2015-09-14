@@ -4,16 +4,16 @@ $(document).ready(function() {
 
     var inputtedFirstName = $("input#new-first-name").val();
     var inputtedLastName = $("input#new-last-name").val();
-    var inputtedAddress = $("input#address").val();
+    var inputtedAddress = $("input#new-address").val();
     var newContact = { firstName: inputtedFirstName, lastName: inputtedLastName, address: inputtedAddress };
 
-    $("ul#contacts").append("<li><span class='contact'>" + newContact.firstName + " " + newContact.lastName "</span></li>");
+    $("ul#contacts").append("<li><span class='contact'>" + newContact.firstName + " " + newContact.lastName + "</span></li>");
 
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
-    $("input#new-adress").val("");
+    $("input#new-address").val("");
 
-    $("contact").last().click(function() {
+    $(".contact").last().click(function() {
       $("#show-contact").show();
       $("#show-contact h2").text(newContact.firstName + " " + newContact.lastName);
       $(".first-name").text(newContact.firstName);
