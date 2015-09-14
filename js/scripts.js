@@ -13,6 +13,10 @@ $(document).ready(function() {
                                    '<label for="new-state">State</label>' +
                                    '<input type="text" class="form-control" id="new-state">' +
                                  '</div>' +
+                                 '<div class="form-group">' +
+                                   '<label for="new-zip">Zip</label>' +
+                                   '<input type="text" class="form-control" id="new-zip">' +
+                                 '</div>' +
                                '</div>');
   });
   $("form#new-contact").submit(function(event) {
@@ -26,12 +30,13 @@ $(document).ready(function() {
       var inputtedStreet = $(this).find("input#new-street").val();
       var inputtedCity = $(this).find("input#new-city").val();
       var inputtedState = $(this).find("input#new-state").val();
+      var inputtedZip = $(this).find("input#new-zip").val();
 
-      var newAddress = { street: inputtedStreet, city: inputtedCity, state: inputtedState };
+      var newAddress = { street: inputtedStreet, city: inputtedCity, state: inputtedState, zip: inputtedZip };
       newContact.addresses.push(newAddress);
     });
 
-    $("ul#contacts").append("<li><span class='contact'>" + newContact.firstName + " " + newContact.lastName + "</span></li>");
+    $("ul#contacts").append("<li><span class='contact'>" + newContact.lastName + ", " + newContact.firstName + "</span></li>");
 
     $(".contact").last().click(function() {
       $("#show-contact").show();
@@ -41,7 +46,7 @@ $(document).ready(function() {
 
       $("ul#addresses").text("");
       newContact.addresses.forEach(function(address) {
-        $("ul#addresses").append("<li>" + address.street + ", " + address.city + ", " + address.state + "</li>");
+        $("ul#addresses").append("<li>" + address.street + ", " + address.city + ", " + address.state + " " + address.zip + "</li>");
       });
     });
 
@@ -50,5 +55,6 @@ $(document).ready(function() {
     $("input#new-street").val("");
     $("input#new-city").val("");
     $("input#new-state").val("");
+    $("input#new-zip").val("");
   });
 });
