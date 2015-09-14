@@ -9,3 +9,27 @@
 .contact:hover {
   text-decoration: underline;
 }
+
+.btn-vikesp {
+  color: #fff;
+  background-color: #4f2683;
+  border-color: #472275;
+}
+
+.btn-vikesp:hover {
+  color: #fff;
+  background-color: #3f1e68;
+  border-color: #371a5b;
+}
+
+.btn-vikesy {
+  color: #fff;
+  background-color: #ffc62f;
+  border-color: #fbb600;
+}
+
+.btn-vikesy:hover {
+  color: #fff;
+  background-color: #e5b22a;
+  border-color: #e5b22a;
+}
