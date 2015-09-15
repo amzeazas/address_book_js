@@ -19,6 +19,15 @@ Address.prototype.fullAddress = function() {
   return this.street + ", " + this.city + ", " + this.state + " " + this.zip;
 }
 
+function resetFields() {
+  $("input#new-first-name").val("");
+  $("input#new-last-name").val("");
+  $("input#new-street").val("");
+  $("input#new-city").val("");
+  $("input#new-state").val("");
+  $("input#new-zip").val("");
+}
+
 $(document).ready(function() {
   $("#add-address").click(function() {
     $("#new-addresses").append('<div class="new-address">' +
@@ -40,6 +49,7 @@ $(document).ready(function() {
                                  '</div>' +
                                '</div>');
   });
+
   $("form#new-contact").submit(function(event) {
     event.preventDefault();
 
@@ -58,12 +68,12 @@ $(document).ready(function() {
       newContact.addresses.push(newAddress);
     });
 
-    $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName + "</span></li>");
+    $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 
     $(".contact").last().click(function() {
       $("#show-contact").show();
 
-      $("#show-contact h2").text(newContact.firstName + " " + newContact.lastName);
+      $("#show-contact h2").text(newContact.fullName());
       $(".first-name").text(newContact.firstName);
       $(".last-name").text(newContact.lastName);
 
@@ -74,11 +84,6 @@ $(document).ready(function() {
       });
     });
 
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input#new-street").val("");
-    $("input#new-city").val("");
-    $("input#new-state").val("");
-    $("input#new-zip").val("");
+    resetFields();
   });
 });
