@@ -8,6 +8,13 @@ Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
 
+function Address(street, city, state, zip){
+  this.street = street;
+  this.city = city;
+  this.state = state;
+  this.zip = zip;
+}
+
 $(document).ready(function() {
   $("#add-address").click(function() {
     $("#new-addresses").append('<div class="new-address">' +
@@ -42,7 +49,7 @@ $(document).ready(function() {
       var inputtedState = $(this).find("input#new-state").val();
       var inputtedZip = $(this).find("input#new-zip").val();
 
-      var newAddress = { street: inputtedStreet, city: inputtedCity, state: inputtedState, zip: inputtedZip };
+      var newAddress = new Address(inputtedStreet, inputtedCity, inputtedState, inputtedZip);
       newContact.addresses.push(newAddress);
     });
 
