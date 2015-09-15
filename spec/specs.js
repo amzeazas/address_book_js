@@ -11,3 +11,13 @@ describe('Contact', function() {
     expect(testContact.fullName()).to.equal("Dick Grayson");
   });
 });
+
+describe('Address', function() {
+  it("creates a new address with the given specifications", function() {
+    var testAddress = new Address("555 Joker Lane", "Gotham City", "WA", "98685");
+    expect(testAddress.street).to.equal("555 Joker Lane");
+    expect(testAddress.city).to.equal("Gotham City");
+    expect(testAddress.state).to.equal("WA");
+    expect(testAddress.zip).to.equal("98685");
+  });
+});
