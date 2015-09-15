@@ -20,4 +20,9 @@ describe('Address', function() {
     expect(testAddress.state).to.equal("WA");
     expect(testAddress.zip).to.equal("98685");
   });
+
+  it("adds the fullAddress method to all addresses", function() {
+    var testAddress = new Address("555 Joker Lane", "Gotham City", "WA", "98685");
+    expect(testAddress.fullAddress()).to.equal("555 Joker Lane, Gotham City, WA 98685");
+  });
 });
